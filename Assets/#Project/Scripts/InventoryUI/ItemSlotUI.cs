@@ -1,18 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class ItemSlotUI : MonoBehaviour
+public abstract class ItemSlotUI : MonoBehaviour, IDropHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] protected Image itemIconImage = null;
+
+    public int SlotIndex { get; private set; }
+
+    public abstract HotbarItem SlotItem { get; set; }
+
+    private void OnEnable() => UpdateSlotUI(); // everytime we open the inventory
+
+    protected virtual void Start() // when we first open the inventory
     {
-        
+        SlotIndex = transform.GetSiblingIndex();
+        UpdateSlotUI();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract void OnDrop(PointerEventData eventData);
+
+    public abstract void UpdateSlotUI();
+
+    protected virtual void EnableSlotUI(bool enable) => itemIconImage.enabled = enable; // no matter the slot, the item icon will be either enabled or disabled
+
 }
