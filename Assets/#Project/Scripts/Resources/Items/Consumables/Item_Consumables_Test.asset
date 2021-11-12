@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Health Potion
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   sellPrice: 1
-  maxStack: 2
+  maxStack: 5
   useText: Does something, maybe?
