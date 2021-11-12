@@ -13,7 +13,7 @@ public class InventorySlot : ItemSlotUI, IDropHandler
         set { }
     }
 
-    public ItemSlot ItemSlot => inventory.ItemContainer.GetSlotByIndex(SlotIndex);
+    public ItemSlot ItemSlot => inventory.itemContainer.GetSlotByIndex(SlotIndex);
 
 
     public override void OnDrop(PointerEventData eventData)
@@ -24,7 +24,7 @@ public class InventorySlot : ItemSlotUI, IDropHandler
 
         if ((itemDragHandler.ItemSlotUI as InventorySlot) != null)
         {
-            inventory.ItemContainer.Swap(itemDragHandler.ItemSlotUI.SlotIndex, SlotIndex);
+            inventory.itemContainer.Swap(itemDragHandler.ItemSlotUI.SlotIndex, SlotIndex);
         }
     }
 

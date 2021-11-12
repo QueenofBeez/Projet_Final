@@ -8,16 +8,16 @@ public class Inventory : ScriptableObject
     [SerializeField] private VoidEvent onInventoryItemsUpdated = null;
     [SerializeField] private ItemSlot testItemSlot = new ItemSlot();
 
-    public ItemContainer ItemContainer { get; } = new ItemContainer(9);
+    public ItemContainer itemContainer { get; } = new ItemContainer(9);
 
-    public void OnEnable() => ItemContainer.OnItemsUpdated += onInventoryItemsUpdated.Raise;
+    public void OnEnable() => itemContainer.OnItemsUpdated += onInventoryItemsUpdated.Raise;
 
-    public void OnDisable() => ItemContainer.OnItemsUpdated -= onInventoryItemsUpdated.Raise;
+    public void OnDisable() => itemContainer.OnItemsUpdated -= onInventoryItemsUpdated.Raise;
 
     [ContextMenu("Test Add")]
     public void TestAdd()
     {
-        ItemContainer.AddItem(testItemSlot);
+        itemContainer.AddItem(testItemSlot);
     }
 }
 

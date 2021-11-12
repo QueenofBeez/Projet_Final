@@ -15,12 +15,14 @@ public class ItemContainer : IItemContainer
 
     public ItemSlot AddItem(ItemSlot itemSlot)
     {
-        for (int i = 0; i < itemSlots.Length; i++)
+        Debug.Log($"{itemSlot.item.name} - {itemSlot.item.MaxStack}");
+        for (int i = 0; i < itemSlots.Length; i++)  
         {
             if(itemSlots[i].item != null)
             {
-                if(itemSlots[i] ==  itemSlot == itemSlot.item)
+                if(itemSlots[i].item ==  itemSlot.item)
                 {
+                
                     int slotRemainingSpace = itemSlots[i].item.MaxStack - itemSlots[i].quantity;
 
                     if(itemSlot.quantity <= slotRemainingSpace)
