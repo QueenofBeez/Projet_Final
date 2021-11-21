@@ -20,7 +20,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update() 
     {
-        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying) 
+        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying) // makes it impossible to trigger the dialogue again = not reset the dialogue by pressing "i" until dialogue is finished
         {
             visualCue.SetActive(true);
             if (InputManager.GetInstance().GetInteractPressed()) 

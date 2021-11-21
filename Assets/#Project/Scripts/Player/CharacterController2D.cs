@@ -30,7 +30,7 @@ public class CharacterController2D : MonoBehaviour
         rb.gravityScale = gravityScale;
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate() // Makes it impossible for the player to move when a Dialogue is playing
     {
         if (DialogueManager.GetInstance().dialogueIsPlaying)
         {
@@ -69,7 +69,7 @@ public class CharacterController2D : MonoBehaviour
     private void HandleHorizontalMovement()
     {
         Vector2 moveDirection = InputManager.GetInstance().GetMoveDirection();
-        rb.velocity = new Vector2(moveDirection.x * runSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(moveDirection.x * runSpeed, moveDirection.y * runSpeed);
     }
 
     private void HandleJumping()

@@ -11,9 +11,9 @@ public class DialogueManager : MonoBehaviour
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private TextMeshProUGUI displayNameText;
-    [SerializeField] private Animator portraitAnimator;
-    private Animator layoutAnimator;
+    // [SerializeField] private TextMeshProUGUI displayNameText;
+    // [SerializeField] private Animator portraitAnimator;
+    // private Animator layoutAnimator;
 
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choices;
@@ -24,9 +24,9 @@ public class DialogueManager : MonoBehaviour
 
     private static DialogueManager instance;
 
-    private const string SPEAKER_TAG = "speaker";
-    private const string PORTRAIT_TAG = "portrait";
-    private const string LAYOUT_TAG = "layout";
+    // private const string SPEAKER_TAG = "speaker";
+    // private const string PORTRAIT_TAG = "portrait";
+    // private const string LAYOUT_TAG = "layout";
 
     private void Awake() 
     {
@@ -47,10 +47,10 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
 
-        // get the layout animator
-        layoutAnimator = dialoguePanel.GetComponent<Animator>();
+    //     // get the layout animator
+    //     layoutAnimator = dialoguePanel.GetComponent<Animator>();
 
-        // get all of the choices text 
+    //     // get all of the choices text 
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
         foreach (GameObject choice in choices) 
@@ -70,7 +70,7 @@ public class DialogueManager : MonoBehaviour
 
         // handle continuing to the next line in the dialogue when submit is pressed
         // NOTE: The 'currentStory.currentChoiecs.Count == 0' part was to fix a bug after the Youtube video was made
-        if (currentStory.currentChoices.Count == 0 && InputManager.GetInstance().GetSubmitPressed())
+        if (InputManager.GetInstance().GetSubmitPressed()) //(currentStory.currentChoices.Count == 0 && InputManager.GetInstance().GetSubmitPressed())
         {
             ContinueStory();
         }
@@ -82,10 +82,10 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
-        // reset portrait, layout, and speaker
-        displayNameText.text = "???";
-        portraitAnimator.Play("default");
-        layoutAnimator.Play("right");
+    //     // reset portrait, layout, and speaker
+    //     displayNameText.text = "???";
+    //     portraitAnimator.Play("default");
+    //     layoutAnimator.Play("right");
 
         ContinueStory();
     }
@@ -108,7 +108,7 @@ public class DialogueManager : MonoBehaviour
             // display choices, if any, for this dialogue line
             DisplayChoices();
             // handle tags
-            HandleTags(currentStory.currentTags);
+            // HandleTags(currentStory.currentTags);
         }
         else 
         {
@@ -116,38 +116,38 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void HandleTags(List<string> currentTags)
-    {
-        // loop through each tag and handle it accordingly
-        foreach (string tag in currentTags) 
-        {
-            // parse the tag
-            string[] splitTag = tag.Split(':');
-            if (splitTag.Length != 2) 
-            {
-                Debug.LogError("Tag could not be appropriately parsed: " + tag);
-            }
-            string tagKey = splitTag[0].Trim();
-            string tagValue = splitTag[1].Trim();
+    // private void HandleTags(List<string> currentTags)
+    // {
+    //     // loop through each tag and handle it accordingly
+    //     foreach (string tag in currentTags) 
+    //     {
+    //         // parse the tag
+    //         string[] splitTag = tag.Split(':');
+    //         if (splitTag.Length != 2) 
+    //         {
+    //             Debug.LogError("Tag could not be appropriately parsed: " + tag);
+    //         }
+    //         string tagKey = splitTag[0].Trim();
+    //         string tagValue = splitTag[1].Trim();
             
-            // handle the tag
-            switch (tagKey) 
-            {
-                case SPEAKER_TAG:
-                    displayNameText.text = tagValue;
-                    break;
-                case PORTRAIT_TAG:
-                    portraitAnimator.Play(tagValue);
-                    break;
-                case LAYOUT_TAG:
-                    layoutAnimator.Play(tagValue);
-                    break;
-                default:
-                    Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
-                    break;
-            }
-        }
-    }
+    //         // handle the tag
+    //         switch (tagKey) 
+    //         {
+    //             case SPEAKER_TAG:
+    //                 displayNameText.text = tagValue;
+    //                 break;
+    //             case PORTRAIT_TAG:
+    //                 portraitAnimator.Play(tagValue);
+    //                 break;
+    //             case LAYOUT_TAG:
+    //                 layoutAnimator.Play(tagValue);
+    //                 break;
+    //             default:
+    //                 Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
+    //                 break;
+    //         }
+    //     }
+    // }
 
     private void DisplayChoices() 
     {
@@ -179,8 +179,8 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator SelectFirstChoice() 
     {
-        // Event System requires we clear it first, then wait
-        // for at least one frame before we set the current selected object.
+       // Event System requires we clear it first, then wait
+       // for at least one frame before we set the current selected object.
         EventSystem.current.SetSelectedGameObject(null);
         yield return new WaitForEndOfFrame();
         EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
