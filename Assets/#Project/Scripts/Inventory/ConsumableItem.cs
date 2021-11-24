@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Text;
+using UnityEngine.Events;
+using System;
 
 [CreateAssetMenu(fileName = "New Consumable Item", menuName = "Items/Consumable Item")]
 
@@ -17,4 +19,5 @@ public class ConsumableItem : InventoryItem
 
         return builder.ToString();
     }
+
 }

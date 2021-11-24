@@ -5,6 +5,7 @@ using System;
 
 public class ItemContainer : IItemContainer
 {
+    public GameObject gameObject;
     private ItemSlot[] itemSlots = new ItemSlot[0];
 
     public Action OnItemsUpdated = delegate { };
@@ -174,5 +175,6 @@ public class ItemContainer : IItemContainer
 
         OnItemsUpdated.Invoke();
     }
+    
 }
 
