@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+public class CameraFollows : MonoBehaviour
 {
     public Transform target;
     public Vector3 offset;

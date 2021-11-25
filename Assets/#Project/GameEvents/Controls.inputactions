@@ -36,6 +36,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "crouch",
+                    "type": "Button",
+                    "id": "767416a4-8f02-4b03-abb8-a4dc85161acd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -152,7 +160,7 @@
                 {
                     "name": "",
                     "id": "8ebb5146-098b-43c8-bef0-2cf0f92c7f2f",
-                    "path": "<Keyboard>/i",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -174,11 +182,22 @@
                 {
                     "name": "",
                     "id": "e1a70666-fc98-41fc-9c09-41e3418c89f6",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "pickup",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "28d82130-08a5-485f-8c74-c5ae3aa192c3",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
