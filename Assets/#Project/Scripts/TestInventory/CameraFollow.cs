@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
 {    
     public Transform target;
     public Vector3 offset;
-    [Range(1,10)]
+    [Range(1,20)]
     public float smoothFactor;
     [HideInInspector]
     public Vector3 minValues, maxValue;
@@ -165,7 +165,7 @@ public class CameraFollowEditor : Editor
                     //Reset view to Player
                     Vector3 targetPos = script.target.position + script.offset;
                     targetPos.z = script.minValues.z;
-                    Camera.main.transform.position = targetPos;
+                    Camera.main.transform.position = targetPos + script.offset;
                 }
             }
         }

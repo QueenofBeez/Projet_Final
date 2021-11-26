@@ -20,7 +20,6 @@ public class InventorySystem : MonoBehaviour
     public Text description_Title;
     public Text description_Text;
 
-
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.I))

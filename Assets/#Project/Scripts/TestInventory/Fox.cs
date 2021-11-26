@@ -24,12 +24,12 @@ public class Fox : MonoBehaviour
     float horizontalValue;
     float verticalValue;
     float runSpeedModifier = 10f;
-    float crouchSpeedModifier = 0.5f;
+    // float crouchSpeedModifier = 0.5f;
     
     bool isGrounded=true;    
     bool isRunning;
     bool facingRight = true;
-    bool crouchPressed;
+    // bool crouchPressed;
     bool multipleJump;
     bool coyoteJump;
     bool isSliding;
@@ -72,11 +72,11 @@ public class Fox : MonoBehaviour
             Jump();
 
         //If we press Crouch button enable crouch 
-        if (Input.GetButtonDown("Crouch"))
-            crouchPressed = true;
-        //Otherwise disable it
-        else if (Input.GetButtonUp("Crouch"))
-            crouchPressed = false;
+        // if (Input.GetButtonDown("Crouch"))
+        //     crouchPressed = true;
+        // //Otherwise disable it
+        // else if (Input.GetButtonUp("Crouch"))
+        //     crouchPressed = false;
 
         //Set the yVelocity Value
         animator.SetFloat("yVelocity", rb.velocity.y);
@@ -88,7 +88,7 @@ public class Fox : MonoBehaviour
     void FixedUpdate()
     {
         GroundCheck();
-        Move(horizontalValue, crouchPressed);        
+        Move(horizontalValue);  //crouchPressed      
     }
 
     private void OnDrawGizmosSelected()
@@ -231,44 +231,44 @@ public class Fox : MonoBehaviour
     }
     #endregion
 
-    void Move(float dir,bool crouchFlag)
+    void Move(float dir) //bool crouchFlag
     {
-        #region Crouch
+        // #region Crouch
 
-        //If we are crouching and disabled crouching
-        //Check overhead for collision with Ground items
-        //If there are any, remain crouched, otherwise un-crouch
-        if(!crouchFlag)
-        {
-            if(Physics2D.OverlapCircle(overheadCheckCollider.position,overheadCheckRadius,groundLayer))
-                crouchFlag = true;
-        }
+        // //If we are crouching and disabled crouching
+        // //Check overhead for collision with Ground items
+        // //If there are any, remain crouched, otherwise un-crouch
+        // if(!crouchFlag)
+        // {
+        //     if(Physics2D.OverlapCircle(overheadCheckCollider.position,overheadCheckRadius,groundLayer))
+        //         crouchFlag = true;
+        // }
 
-        animator.SetBool("Crouch", crouchFlag);
-        standingCollider.enabled = !crouchFlag;
-        crouchingCollider.enabled = crouchFlag;
+        // animator.SetBool("Crouch", crouchFlag);
+        // standingCollider.enabled = !crouchFlag;
+        // crouchingCollider.enabled = crouchFlag;
 
-        #endregion
+        // #endregion
 
         #region Move & Run
 
         Vector2 moveDirection = InputManager.GetInstance().GetMoveDirection();
-        rb.velocity = new Vector2(moveDirection.x * 4, moveDirection.y * 4);
+        rb.velocity = new Vector2(moveDirection.x * 10, moveDirection.y * 8);
 
         //Set value of x using dir and speed
         // float xVal = dir * speed * 100 * Time.fixedDeltaTime;
-        // //If we are running mulitply with the running modifier (higher)
-        // if (isRunning)
-        //     xVal *= runSpeedModifier;
-        // //If we are running mulitply with the running modifier (higher)
-        // if (crouchFlag)
-        //     xVal *= crouchSpeedModifier;
-        // //Create Vec2 for the velocity
-        // Vector2 targetVelocity = new Vector2(xVal, rb.velocity.y);
-        // //Set the player's velocity
-        // rb.velocity = targetVelocity;
+        // // //If we are running mulitply with the running modifier (higher)
+        // // if (isRunning)
+        // //     xVal *= runSpeedModifier;
+        // // //If we are running mulitply with the running modifier (higher)
+        // // if (crouchFlag)
+        // //     xVal *= crouchSpeedModifier;
+        // // //Create Vec2 for the velocity
+        // // Vector2 targetVelocity = new Vector2(xVal, rb.velocity.y);
+        // // //Set the player's velocity
+        // // rb.velocity = targetVelocity;
  
-        // //If looking right and clicked left (flip to the left)
+        // // //If looking right and clicked left (flip to the left)
         // if(facingRight && dir < 0)
         // {
         //     transform.localScale = new Vector3(-1, 1, 1);
@@ -281,11 +281,11 @@ public class Fox : MonoBehaviour
         //     facingRight = true;
         // }
 
-        // //(0 idle , 4 walking , 8 running)
-        // //Set the float xVelocity according to the x value 
-        // //of the RigidBody2D velocity 
+        // // //(0 idle , 4 walking , 8 running)
+        // // //Set the float xVelocity according to the x value 
+        // // //of the RigidBody2D velocity 
         // animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
-         #endregion
+        #endregion
     }   
     
     public void Die()
