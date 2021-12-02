@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class Item : MonoBehaviour
 {    
     public enum InteractionType { NONE, PickUp, Examine, GrabDrop, Combinable }
-    public enum ItemType { Static, Consumables}
+    public enum ItemType { Static, Consumables, Keys }
     [Header("Attributes")]
     public InteractionType interactType;
     public ItemType type;
