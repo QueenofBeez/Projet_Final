@@ -44,6 +44,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "combine",
+                    "type": "Button",
+                    "id": "bf6bf548-dc4c-4430-b606-93e160828fca",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -198,6 +206,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a50a7ec7-a053-4f52-8873-50ad5cb6c2bb",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "combine",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

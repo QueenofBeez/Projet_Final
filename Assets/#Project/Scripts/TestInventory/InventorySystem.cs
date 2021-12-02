@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,14 @@ public class InventorySystem : MonoBehaviour
     public Image description_Image;
     public Text description_Title;
     public Text description_Text;
+    public GameObject finalResult;
+    public int Nbr = 0;
+    public int selectedObjectid = -1;
+
+    private void Start()
+    {
+        finalResult = GameObject.FindGameObjectWithTag("Result");
+    }
 
     private void Update()
     {
@@ -87,7 +96,7 @@ public class InventorySystem : MonoBehaviour
 
     public void Consume(int id)
     {
-        if(items[id].GetComponent<Item>().type== Item.ItemType.Consumables)
+        if(items[id].GetComponent<Item>().type == Item.ItemType.Consumables)
         {
             Debug.Log($"CONSUMED {items[id].name}");
             //Invoke the cunsume custome event
@@ -98,6 +107,45 @@ public class InventorySystem : MonoBehaviour
             items.RemoveAt(id);
             //Update UI
             Update_UI();
+            // mettre inactif
+            selectedObjectid = -1;
+        }
+        else if(items[id].GetComponent<Item>().type == Item.ItemType.Static)
+        {
+            // variable int de l'objet actif, si pas d'objet actif =-1, la mettre à la valeur de l'objet cliqué/ else les combiner
+            // checker si objet est actif
+
+                if (selectedObjectid == -1)
+                {
+                    selectedObjectid = id;
+                }else
+                {
+                    string firstObjectName = items[id].GetComponent<Item>().itemName;
+                    string secondObjectName = items[selectedObjectid].GetComponent<Item>().itemName;
+                    string combinesWith = items[id].GetComponent<Item>().combineWith;
+                    GameObject finalObject = items[id].GetComponent<Item>().combinationResult;
+                    if (secondObjectName == combinesWith)
+                    {
+                        GameObject newObject = Instantiate(finalObject, Vector3.zero, Quaternion.identity);
+                        PickUp(newObject);
+
+                        Destroy(items[Mathf.Max(id, selectedObjectid)], 0.1f);
+                        Destroy(items[Mathf.Min(id, selectedObjectid)], 0.1f);
+                        //Clear the item from the list
+                        items.RemoveAt(Mathf.Max(id, selectedObjectid));
+                        items.RemoveAt(Mathf.Min(id, selectedObjectid));
+                        //Update UI
+                        Update_UI();
+                    }
+                    selectedObjectid = -1;
+                }
+
+                // Destroy(items[id], 0.1f);
+                // // Clear the item from the list
+                // // Update UI
+                // Update_UI();
+                // // mettre inactif
+                // items[id].SetActive(false);
         }
     }
 }

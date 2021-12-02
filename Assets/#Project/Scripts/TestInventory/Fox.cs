@@ -45,6 +45,7 @@ public class Fox : MonoBehaviour
 
     void Update()
     {
+        // if (DialogueManager.GetInstance().dialogueIsPlaying)
         if (CanMoveOrInteract()==false)
             return;
 

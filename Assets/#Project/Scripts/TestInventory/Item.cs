@@ -8,11 +8,16 @@ using UnityEngine.UI;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Item : MonoBehaviour
 {    
-    public enum InteractionType { NONE, PickUp, Examine,GrabDrop }
-    public enum ItemType { Staic, Consumables}
+    public enum InteractionType { NONE, PickUp, Examine, GrabDrop, Combinable }
+    public enum ItemType { Static, Consumables}
     [Header("Attributes")]
     public InteractionType interactType;
     public ItemType type;
+
+    public string itemName;
+    public string combineWith;
+    public GameObject combinationResult;
+
     [Header("Examine")]
     public string descriptionText;
     [Header("Custom Events")]
@@ -49,6 +54,7 @@ public class Item : MonoBehaviour
                 //Grab interaction
                 FindObjectOfType<InteractionSystem>().GrabDrop();
                 break;
+
             default:
                 Debug.Log("NULL ITEM");
                 break;
