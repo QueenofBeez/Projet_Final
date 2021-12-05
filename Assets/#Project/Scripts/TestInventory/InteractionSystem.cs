@@ -19,11 +19,14 @@ public class InteractionSystem : MonoBehaviour
     public GameObject examineWindow;
     public GameObject grabbedObject;
     public float grabbedObjectYValue;
+    public float grabbedObjectXValue;
     public Transform grabPoint;
     public Image examineImage;
     public Text examineText;
     public bool isExamining;
+    public bool isChecking;
     public bool isGrabbing;
+    public GameObject examineListOfTasks;
 
     void Update()
     {
@@ -92,6 +95,23 @@ public class InteractionSystem : MonoBehaviour
             isExamining = true;
         }        
     }
+    public void CheckList(Item item)
+    {
+        if(isChecking)
+        {
+            //Hide the Examine Window
+            examineListOfTasks.SetActive(false);
+            //disable the boolean
+            isChecking = false;
+        }
+        else
+        {
+            //Display an Examine Window
+            examineListOfTasks.SetActive(true);
+            //enable the boolean
+            isChecking = true;
+        }     
+    }
 
     public void GrabDrop()
     {        
@@ -104,7 +124,7 @@ public class InteractionSystem : MonoBehaviour
             grabbedObject.transform.parent=null;            
             //set the y position to its origin
             grabbedObject.transform.position = 
-                new Vector3(grabbedObject.transform.position.x,grabbedObjectYValue,grabbedObject.transform.position.z);
+            new Vector3(grabbedObject.transform.position.x,grabbedObjectYValue,grabbedObject.transform.position.z);
             //null the grabbed object reference
             grabbedObject=null;
         }
@@ -119,6 +139,7 @@ public class InteractionSystem : MonoBehaviour
             grabbedObject.transform.parent=transform;
             //Cache the y value of the object
             grabbedObjectYValue=grabbedObject.transform.position.y;
+            grabbedObjectXValue=grabbedObject.transform.position.x;
             //Adjust the position of the grabbed object to be closer to hands                        
             grabbedObject.transform.localPosition=grabPoint.localPosition;
         }

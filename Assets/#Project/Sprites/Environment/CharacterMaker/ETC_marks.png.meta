@@ -1,7 +1,43 @@
 fileFormatVersion: 2
 guid: 5fe8141202cb8e74988fa34bfde707f5
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2508489667220868921
+    second: ETC_marks_0
+  - first:
+      213: 4271486709195929271
+    second: ETC_marks_1
+  - first:
+      213: -7297176003117691048
+    second: ETC_marks_2
+  - first:
+      213: -5229466597357133004
+    second: ETC_marks_3
+  - first:
+      213: -4367476115467442637
+    second: ETC_marks_4
+  - first:
+      213: -7008966233511811525
+    second: ETC_marks_5
+  - first:
+      213: -1797054440376115132
+    second: ETC_marks_6
+  - first:
+      213: 1540178622998274276
+    second: ETC_marks_7
+  - first:
+      213: -544794623094475722
+    second: ETC_marks_8
+  - first:
+      213: 1332687101157736175
+    second: ETC_marks_9
+  - first:
+      213: -6564911813597502236
+    second: ETC_marks_10
+  - first:
+      213: -7880545200269901787
+    second: ETC_marks_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +77,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +111,273 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ETC_marks_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 167.5
+        width: 35
+        height: 42.5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c0ff8e20fd003dd0800000000000000
+      internalID: -2508489667220868921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ETC_marks_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 167.5
+        width: 35
+        height: 42.5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b6fc6cd78e574b30800000000000000
+      internalID: 4271486709195929271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ETC_marks_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 167.5
+        width: 35
+        height: 42.5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85f4aa656193bba90800000000000000
+      internalID: -7297176003117691048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ETC_marks_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 115.5
+        width: 35
+        height: 42.5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 433e1cb26d33d67b0800000000000000
+      internalID: -5229466597357133004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ETC_marks_4
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 115.5
+        width: 35
+        height: 42.5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3366f84ec9b9363c0800000000000000
+      internalID: -4367476115467442637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ETC_marks_5
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 115.5
+        width: 35
+        height: 42.5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3622d088562bbe90800000000000000
+      internalID: -7008966233511811525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ETC_marks_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 63.5
+        width: 35
+        height: 42.5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 440e757f1849f07e0800000000000000
+      internalID: -1797054440376115132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ETC_marks_7
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 63.5
+        width: 35
+        height: 42.5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e066722c40df5510800000000000000
+      internalID: 1540178622998274276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ETC_marks_8
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 63.5
+        width: 35
+        height: 42.5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63439ee3d208078f0800000000000000
+      internalID: -544794623094475722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ETC_marks_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11.5
+        width: 35
+        height: 42.5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fee704d8bd7ae7210800000000000000
+      internalID: 1332687101157736175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ETC_marks_10
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 11.5
+        width: 35
+        height: 42.5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e461c8ec7fb4e4a0800000000000000
+      internalID: -6564911813597502236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ETC_marks_11
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 11.5
+        width: 35
+        height: 42.5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 520c08da4eda2a290800000000000000
+      internalID: -7880545200269901787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

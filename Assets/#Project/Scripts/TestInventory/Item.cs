@@ -1,19 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class Item : MonoBehaviour
 {    
-    public enum InteractionType { NONE, PickUp, Examine, GrabDrop, Combinable }
-    public enum ItemType { Static, Consumables, Keys }
+    public enum InteractionType { NONE, PickUp, Examine, GrabDrop, Combinable, ListOfTasks }
+    public enum ItemType { Static, Consumables, Keys, Tasks }
     [Header("Attributes")]
     public InteractionType interactType;
     public ItemType type;
-
     public string itemName;
     public string combineWith;
     public GameObject combinationResult;
@@ -24,6 +20,8 @@ public class Item : MonoBehaviour
     public UnityEvent customEvent;
     public UnityEvent consumeEvent;
     [SerializeField] private TextMeshProUGUI pickupText;
+    [SerializeField] private GameObject listofTasksText;
+    [SerializeField] private KeyType keyType;
 
     private void Reset()
     {
@@ -34,6 +32,7 @@ public class Item : MonoBehaviour
     private void Start()
     {
         pickupText.gameObject.SetActive(false);
+        listofTasksText.gameObject.SetActive(false);
     }
 
     public void Interact()
@@ -50,11 +49,13 @@ public class Item : MonoBehaviour
                 //Call the Examine item in the interaction system
                 FindObjectOfType<InteractionSystem>().ExamineItem(this);                
                 break;
+            case InteractionType.ListOfTasks:
+                FindObjectOfType<InteractionSystem>().CheckList(this);                
+                break;
             case InteractionType.GrabDrop:
                 //Grab interaction
                 FindObjectOfType<InteractionSystem>().GrabDrop();
                 break;
-
             default:
                 Debug.Log("NULL ITEM");
                 break;
@@ -69,7 +70,7 @@ public class Item : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Player"))
         {
-            pickupText.gameObject.SetActive(true);
+            pickupText.gameObject.SetActive(false);
         }
     }
 
@@ -79,5 +80,21 @@ public class Item : MonoBehaviour
         {
             pickupText.gameObject.SetActive(false);
         }
+    }
+
+    public enum KeyType 
+    {
+        El,
+        Mel,
+        Parents,
+        Closet,
+        Bathroom,
+        FrontDoor,
+        None
+    }
+
+    public KeyType GetKeyType()
+    {
+        return keyType;
     }
 }

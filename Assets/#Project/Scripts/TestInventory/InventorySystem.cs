@@ -23,6 +23,8 @@ public class InventorySystem : MonoBehaviour
     public GameObject finalResult;
     public int Nbr = 0;
     public int selectedObjectid = -1;
+    public GameObject ui_ListOfTasks;
+    private List<Item.KeyType> keyList;
 
     private void Start()
     {
@@ -94,6 +96,16 @@ public class InventorySystem : MonoBehaviour
         description_Text.gameObject.SetActive(false);
     }
 
+    public bool ContainsKey(Item.KeyType keyType)
+    {
+        return keyList.Contains(keyType);
+    }
+
+    public void RemoveKey(Item.KeyType keyType)
+    {
+        keyList.Remove(keyType);
+    }
+
     public void Consume(int id)
     {
         if(items[id].GetComponent<Item>().type == Item.ItemType.Consumables)
@@ -118,7 +130,7 @@ public class InventorySystem : MonoBehaviour
                 if (selectedObjectid == -1)
                 {
                     selectedObjectid = id;
-                }else
+                } else
                 {
                     string firstObjectName = items[id].GetComponent<Item>().itemName;
                     string secondObjectName = items[selectedObjectid].GetComponent<Item>().itemName;
@@ -139,13 +151,25 @@ public class InventorySystem : MonoBehaviour
                     }
                     selectedObjectid = -1;
                 }
-
-                // Destroy(items[id], 0.1f);
-                // // Clear the item from the list
-                // // Update UI
-                // Update_UI();
-                // // mettre inactif
-                // items[id].SetActive(false);
         }
+        // else if(items[id].GetComponent<Item>().type == Item.ItemType.Keys)
+        // {
+        //     if (selectedObjectid == -1)
+        //     {
+        //         Debug.Log("hi");
+        //         Item key = GetComponent<Item>();
+        //         KeyDoor keyDoor = GetComponent<KeyDoor>();
+        //         if (ContainsKey(keyDoor.GetKeyType()))
+        //         {
+        //             //Destroy the item in very tiny time
+        //             Destroy(items[id], 0.1f);
+        //             //Clear the item from the list
+        //             items.RemoveAt(id);
+        //             RemoveKey(keyDoor.GetKeyType());
+        //             keyDoor.OpenDoor();
+        //             Update_UI();
+        //         }
+        //     }
+        // }
     }
 }

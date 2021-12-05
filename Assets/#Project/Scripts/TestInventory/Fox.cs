@@ -254,7 +254,7 @@ public class Fox : MonoBehaviour
         #region Move & Run
 
         Vector2 moveDirection = InputManager.GetInstance().GetMoveDirection();
-        rb.velocity = new Vector2(moveDirection.x * 10, moveDirection.y * 8);
+        rb.velocity = new Vector2(moveDirection.x * 30, moveDirection.y * 20);
 
         //Set value of x using dir and speed
         // float xVal = dir * speed * 100 * Time.fixedDeltaTime;
