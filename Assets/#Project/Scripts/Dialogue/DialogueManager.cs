@@ -18,6 +18,8 @@ public class DialogueManager : MonoBehaviour
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
+    public List<GameObject> dialogues;
+    public GameObject selectedDialogue;
 
     private Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
@@ -62,6 +64,10 @@ public class DialogueManager : MonoBehaviour
 
     private void Update() 
     {
+        //     if (dialogueText.text == "Choose which item to give to him\n")
+        // {
+            
+        // }
         // return right away if dialogue isn't playing
         if (!dialogueIsPlaying) 
         {
@@ -75,6 +81,19 @@ public class DialogueManager : MonoBehaviour
             ContinueStory();
         }
     }
+
+    // public void EnterOrderDialogueMode()
+    // {
+    //     if (dialogueIsPlaying) return;
+    //     int index = Random.Range(0, dialogues.Count);
+
+    //     selectedDialogue = dialogues[index];
+    //     DialogueTrigger dialogueTrigger = selectedDialogue.GetComponent<DialogueTrigger>();
+    //     if (dialogueTrigger == null)
+    //     {
+    //         Debug.LogError($"No DialogueTrigger in gameObject \"{selectedDialogue.name}\".", gameObject);
+    //     }
+    // }
 
     public void EnterDialogueMode(TextAsset inkJSON) 
     {
@@ -110,7 +129,7 @@ public class DialogueManager : MonoBehaviour
             // handle tags
             // HandleTags(currentStory.currentTags);
         }
-        else 
+        else if (currentStory.currentChoices.Count == 0)
         {
             StartCoroutine(ExitDialogueMode());
         }

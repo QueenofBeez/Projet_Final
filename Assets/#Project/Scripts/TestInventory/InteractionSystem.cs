@@ -27,6 +27,7 @@ public class InteractionSystem : MonoBehaviour
     public bool isChecking;
     public bool isGrabbing;
     public GameObject examineListOfTasks;
+    // public GameObject examineControls;
 
     void Update()
     {
@@ -112,6 +113,24 @@ public class InteractionSystem : MonoBehaviour
             isChecking = true;
         }     
     }
+
+    // public void CheckControls(Item item)
+    // {
+    //     if(isChecking)
+    //     {
+    //         //Hide the Examine Window
+    //         examineControls.SetActive(false);
+    //         //disable the boolean
+    //         isChecking = false;
+    //     }
+    //     else
+    //     {
+    //         //Display an Examine Window
+    //         examineControls.SetActive(true);
+    //         //enable the boolean
+    //         isChecking = true;
+    //     }     
+    // }
 
     public void GrabDrop()
     {        

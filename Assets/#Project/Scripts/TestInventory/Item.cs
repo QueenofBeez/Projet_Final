@@ -5,8 +5,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Item : MonoBehaviour
 {    
-    public enum InteractionType { NONE, PickUp, Examine, GrabDrop, Combinable, ListOfTasks }
-    public enum ItemType { Static, Consumables, Keys, Tasks }
+    public enum InteractionType { NONE, PickUp, Examine, GrabDrop, Combinable, ListOfTasks, } // CheckTheControls
+    public enum ItemType { Static, Consumables, Keys, Tasks } // Controls
     [Header("Attributes")]
     public InteractionType interactType;
     public ItemType type;
@@ -21,6 +21,7 @@ public class Item : MonoBehaviour
     public UnityEvent consumeEvent;
     [SerializeField] private TextMeshProUGUI pickupText;
     [SerializeField] private GameObject listofTasksText;
+    // [SerializeField] private GameObject listofControlsText;
     [SerializeField] private KeyType keyType;
 
     private void Reset()
@@ -33,6 +34,7 @@ public class Item : MonoBehaviour
     {
         pickupText.gameObject.SetActive(false);
         listofTasksText.gameObject.SetActive(false);
+        // listofControlsText.gameObject.SetActive(false);
     }
 
     public void Interact()
@@ -52,6 +54,9 @@ public class Item : MonoBehaviour
             case InteractionType.ListOfTasks:
                 FindObjectOfType<InteractionSystem>().CheckList(this);                
                 break;
+            // case InteractionType.CheckTheControls:
+            //     FindObjectOfType<InteractionSystem>().CheckControls(this);                
+            //     break;
             case InteractionType.GrabDrop:
                 //Grab interaction
                 FindObjectOfType<InteractionSystem>().GrabDrop();
