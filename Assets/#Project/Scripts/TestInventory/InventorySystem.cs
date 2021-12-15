@@ -108,11 +108,22 @@ public class InventorySystem : MonoBehaviour
 
     public void Consume(int id)
     {
-        if(items[id].GetComponent<Item>().type == Item.ItemType.Consumables)
+
+        Item item = items[id].GetComponent<Item>();
+
+        if(item.type == Item.ItemType.Consumables)
         {
+            if (item.NPCName != null && item.NPCName != "") {
+                // Do this : (you need a way to get the NPC name, I'll let you figure it out !)
+                // If (the item.NPCName is different from the one we are close to) {
+                //    return;
+                // }
+                
+            }
+
             Debug.Log($"CONSUMED {items[id].name}");
             //Invoke the cunsume custome event
-            items[id].GetComponent<Item>().consumeEvent.Invoke();
+            item.consumeEvent.Invoke();
             //Destroy the item in very tiny time
             Destroy(items[id], 0.1f);
             //Clear the item from the list
@@ -122,7 +133,7 @@ public class InventorySystem : MonoBehaviour
             // mettre inactif
             selectedObjectid = -1;
         }
-        else if(items[id].GetComponent<Item>().type == Item.ItemType.Static)
+        else if(item.type == Item.ItemType.Static)
         {
             // variable int de l'objet actif, si pas d'objet actif =-1, la mettre à la valeur de l'objet cliqué/ else les combiner
             // checker si objet est actif
@@ -132,10 +143,10 @@ public class InventorySystem : MonoBehaviour
                     selectedObjectid = id;
                 } else
                 {
-                    string firstObjectName = items[id].GetComponent<Item>().itemName;
+                    string firstObjectName = item.itemName;
                     string secondObjectName = items[selectedObjectid].GetComponent<Item>().itemName;
-                    string combinesWith = items[id].GetComponent<Item>().combineWith;
-                    GameObject finalObject = items[id].GetComponent<Item>().combinationResult;
+                    string combinesWith = item.combineWith;
+                    GameObject finalObject = item.combinationResult;
                     if (secondObjectName == combinesWith)
                     {
                         GameObject newObject = Instantiate(finalObject, Vector3.zero, Quaternion.identity);

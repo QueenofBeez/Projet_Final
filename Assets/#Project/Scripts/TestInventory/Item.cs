@@ -24,6 +24,9 @@ public class Item : MonoBehaviour
     // [SerializeField] private GameObject listofControlsText;
     [SerializeField] private KeyType keyType;
 
+    [Header("NPC interaction")]
+    public string NPCName;
+
     private void Reset()
     {
         GetComponent<Collider2D>().isTrigger = true;
