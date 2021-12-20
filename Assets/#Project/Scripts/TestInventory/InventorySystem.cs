@@ -113,7 +113,8 @@ public class InventorySystem : MonoBehaviour
 
         if(item.type == Item.ItemType.Consumables)
         {
-            if (item.NPCName != null && item.NPCName != "") {
+            if (item.NPCName != null && item.NPCName != "") 
+            {
                 // Do this : (you need a way to get the NPC name, I'll let you figure it out !)
                 // If (the item.NPCName is different from the one we are close to) {
                 //    return;
