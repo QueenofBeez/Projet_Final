@@ -13,6 +13,9 @@ public class Fox : MonoBehaviour
     public Transform wallCheckCollider;
     public LayerMask wallLayer;
 
+    public NPCQuest nPCQuest;
+
+
     const float groundCheckRadius = 0.2f;
     const float overheadCheckRadius = 0.2f;
     const float wallCheckRadius = 0.2f;
@@ -189,6 +192,14 @@ public class Fox : MonoBehaviour
         else
         {
             isSliding = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider) 
+    {
+        if (collider.gameObject.tag == "NPC")
+        {
+            
         }
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -19,9 +20,13 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
     public List<GameObject> dialogues;
+    public UnityEvent consumeEvent;
     public GameObject selectedDialogue;
-
     private Story currentStory;
+    private InventorySystem inventory;
+    private InteractionSystem interact;
+    public GameObject glassOfWine;
+    public GameObject parentsDoorKey;
     public bool dialogueIsPlaying { get; private set; }
 
     private static DialogueManager instance;
@@ -64,10 +69,11 @@ public class DialogueManager : MonoBehaviour
 
     private void Update() 
     {
-        //     if (dialogueText.text == "Choose which item to give to him\n")
-        // {
-            
-        // }
+        if (dialogueText.text == "[Is it this wine you seek?]\n")
+        {
+            glassOfWine.SetActive(false);
+            parentsDoorKey.SetActive(true);
+        }
         // return right away if dialogue isn't playing
         if (!dialogueIsPlaying) 
         {

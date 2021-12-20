@@ -15,6 +15,7 @@ public class InputManager : MonoBehaviour
     private bool jumpPressed = false;
     private bool interactPressed = false;
     private bool submitPressed = false;
+    private bool quitPressed = false;
 
     private static InputManager instance;
 
@@ -115,4 +116,26 @@ public class InputManager : MonoBehaviour
         submitPressed = false;
     }
 
+    
+    public void QuitPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            quitPressed = true;
+            Application.Quit();
+            Debug.Log("Quit Pressed");
+        }
+        else if (context.canceled)
+        {
+            quitPressed = false;
+        }
+    }
+
+  public bool GetQuitPressed() 
+    {
+        bool result = quitPressed;
+        quitPressed = false;
+        return result;
+    }
+    
 }
